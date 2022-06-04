@@ -1,0 +1,4 @@
+package jzof
+
+object JZ {
+}

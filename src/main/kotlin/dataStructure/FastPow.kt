@@ -1,6 +1,6 @@
 package dataStructure
 
-class FastSquare {
+class FastPow {
     fun fastPow(base: Int, exp: Int): Int {
         if (base == 0) return 0
         return when (exp) {

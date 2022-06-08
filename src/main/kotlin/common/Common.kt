@@ -5,6 +5,11 @@ import java.util.*
 class Common {
 }
 
+class Node(var `val`: Int) {
+    var next: Node? = null
+    var random: Node? = null
+}
+
 class ListNode(var `val`: Int) {
     var next: ListNode? = null
     override fun toString(): String {
@@ -78,22 +83,29 @@ fun IntArray.printSelf() {
     }
     println()
 }
+
 fun BooleanArray.printSelf() {
     for (i in this) {
         print("$i->")
     }
     println()
 }
+
 fun List<Int>.printSelf() {
     for (i in this) {
         print("$i->")
     }
     println()
 }
-fun Int.repeat(i: Int): IntArray {
-    return IntArray(i){this}
+fun Set<Int>.printSelf() {
+    val s = "{"+this.map { it.toString() }.joinToString(separator = ",")+"}"
+    println(s)
 }
+fun Int.repeat(i: Int): IntArray {
+    return IntArray(i) { this }
+}
+
 fun main() {
-    val r = buildTreeNode(listOf(1,null,2,3))
+    val r = buildTreeNode(listOf(1, null, 2, 3))
     println(r.`val`)
 }

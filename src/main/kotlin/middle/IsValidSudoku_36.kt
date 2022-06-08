@@ -1,9 +1,24 @@
 package middle
 
-import jdk.nashorn.internal.objects.NativeFunction.function
-
 object IsValidSudoku_36 {
     fun isValidSudoku(board: Array<CharArray>): Boolean {
+        val line = Array(9){BooleanArray(9)}
+        val col = Array(9){BooleanArray(9)}
+        val block = Array(3){Array(3){ BooleanArray(9)} }
+
+        for (i in 0..8) {
+            for (j in 0..8) {
+                val c = board[i][j]
+                if (c=='.') continue
+                if (line[i][c-'1']==true) return false
+                if (col[j][c-'1']==true) return false
+                if (block[i/3][j/3][c-'1']==true)  return false
+                line[i][c-'1'] = true
+                col[j][c-'1'] = true
+                block[i/3][j/3][c-'1'] = true
+            }
+        }
+        return true
 
     }
 }

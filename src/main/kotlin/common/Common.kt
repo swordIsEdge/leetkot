@@ -78,6 +78,12 @@ fun IntArray.printSelf() {
     }
     println()
 }
+fun BooleanArray.printSelf() {
+    for (i in this) {
+        print("$i->")
+    }
+    println()
+}
 fun List<Int>.printSelf() {
     for (i in this) {
         print("$i->")

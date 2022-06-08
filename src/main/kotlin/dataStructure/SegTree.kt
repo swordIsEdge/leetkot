@@ -1,0 +1,4 @@
+package dataStructure
+
+object SegTree {
+}

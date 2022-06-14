@@ -1,3 +1,5 @@
+@file:Suppress("NAME_SHADOWING")
+
 package common
 
 import java.util.*
@@ -97,12 +99,33 @@ fun List<Int>.printSelf() {
     }
     println()
 }
+
 fun Set<Int>.printSelf() {
-    val s = "{"+this.map { it.toString() }.joinToString(separator = ",")+"}"
+    val s = "{" + this.map { it.toString() }.joinToString(separator = ",") + "}"
     println(s)
 }
+
 fun Int.repeat(i: Int): IntArray {
     return IntArray(i) { this }
+}
+
+fun parserIntArray(s: String): IntArray {
+    var s = s
+    if (s.startsWith('[')) s = s.substring(1)
+    if (s.endsWith(']')) s = s.substring(0, s.length - 1)
+    val items = s.split(',')
+    return items.map { it.toInt() }.toIntArray()
+}
+
+fun parserArrayIntArray(s: String): Array<IntArray> {
+    var s = s
+    if (s.startsWith('[')) s = s.substring(1)
+    if (s.endsWith(']')) s = s.substring(0, s.length - 1)
+    val items = s.split("],")
+    return items.map { parserIntArray(it) }.toTypedArray()
+}
+fun Any.printSelf() {
+    println(this)
 }
 
 fun main() {

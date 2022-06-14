@@ -1,5 +1,7 @@
 package dp.middle
 
+import common.printSelf
+
 object IntegerBreak_343 {
     fun integerBreak(n: Int): Int {
         val dp = IntArray(n + 1)
@@ -11,10 +13,11 @@ object IntegerBreak_343 {
                 dp[i] = maxOf(dp[i], j * (i - j), j * dp[i - j])
             }
         }
+        dp.printSelf()
         return dp[n]
     }
 }
 
 fun main() {
-    println(IntegerBreak_343.integerBreak(3))
+    println(IntegerBreak_343.integerBreak(120))
 }

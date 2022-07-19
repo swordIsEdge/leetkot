@@ -86,12 +86,7 @@ fun IntArray.printSelf() {
     println()
 }
 
-fun BooleanArray.printSelf() {
-    for (i in this) {
-        print("$i->")
-    }
-    println()
-}
+
 
 fun List<Int>.printSelf() {
     for (i in this) {
@@ -124,8 +119,22 @@ fun parserArrayIntArray(s: String): Array<IntArray> {
     val items = s.split("],")
     return items.map { parserIntArray(it) }.toTypedArray()
 }
-fun Any.printSelf() {
-    println(this)
+fun Any?.printSelf() {
+    print(this)
+}
+fun BooleanArray.printArray() {
+    for (i in this) {
+        print("$i->")
+    }
+}
+inline fun  <reified T> Array<T>.printSelf() {
+    print('[')
+    println()
+    for (t in this) {
+        t.printSelf()
+        println()
+    }
+    print(']')
 }
 
 fun main() {

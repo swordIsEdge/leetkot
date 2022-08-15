@@ -105,7 +105,7 @@ fun Int.repeat(i: Int): IntArray {
 }
 
 fun parserIntArray(s: String): IntArray {
-    var s = s
+    var s = s.trim()
     if (s.startsWith('[')) s = s.substring(1)
     if (s.endsWith(']')) s = s.substring(0, s.length - 1)
     val items = s.split(',')
@@ -120,7 +120,7 @@ fun parserArrayIntArray(s: String): Array<IntArray> {
     return items.map { parserIntArray(it) }.toTypedArray()
 }
 fun Any?.printSelf() {
-    print(this)
+    println(this)
 }
 fun BooleanArray.printArray() {
     for (i in this) {
